@@ -10,7 +10,7 @@ const openai = new OpenAI({
   apiKey: OPENAI_API_KEY
 });
 
-const generatePersonaJson = async(niche, product) => {
+const generatePersonaJson = async(product, targetMarket, problem, industry) => {
     const completion = await openai.beta.chat.completions.parse({
         model: "gpt-4o-mini",
         messages: [
@@ -18,10 +18,13 @@ const generatePersonaJson = async(niche, product) => {
             role: "system",
             content: `
             
-            Niche (Potential Clients) : ${niche}
-            Product Or Service : ${product}
+            What do they sell : ${product}
+            Target market : ${targetMarket}
+            problem their product or service solves : ${problem}
+            industry they focus on : ${industry}
 
-            Given the Niche and Product or Service, you are an expert market researcher specializing in creating highly detailed buyer personas. 
+
+            Given the Information, you are an expert market researcher specializing in creating highly detailed buyer personas. 
 
 Given the industry and service, generate a **realistic and well-defined buyer persona** that accurately reflects the ideal customer profile. The persona should include deep insights into their **goals, pain points, buying behavior, and psychological triggers**, ensuring it aligns with the provided industry and service.
 

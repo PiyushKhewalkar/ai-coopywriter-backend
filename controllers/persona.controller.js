@@ -37,11 +37,11 @@ export const generatePersona = async(req, res) => {
 
         console.log("Request body:", req.body); // Debugging log
 
-        const { niche, product } = req.body
+        const { product, targetMarket, problem, industry } = req.body
 
         // get user details
 
-        const personaJson = await generatePersonaJson(niche, product)
+        const personaJson = await generatePersonaJson(product, targetMarket, problem, industry)
 
         if (!personaJson) return res.status(500).json({error : "error generating persona json"})
 
