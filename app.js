@@ -9,6 +9,7 @@ import connectToDatabase from "./database/mongodb.js"
 
 // routes
 import personaRouter from "./routes/persona.routes.js"
+import productRouter from "./routes/product.routes.js"
 
 const app = express()
 app.use(cors());
@@ -16,6 +17,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/persona", personaRouter)
+app.use("api/product", productRouter)
 
 app.get("/", (req, res) => {
   res.send("Home directory")
