@@ -17,7 +17,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/persona", personaRouter)
-app.use("api/product", productRouter)
+app.use("/api/product", productRouter)
 
 app.get("/", (req, res) => {
   res.send("Home directory")
