@@ -65,3 +65,20 @@ export const generateCampaign = async(req, res, next) => {
         return res.status(500).json({success : false, error : "Internal Server Error", details : error.message})
     }
 }
+
+export const deleteCampaign = async(req, res, next) => {
+    try {
+
+        const {campaignId} = req.params
+
+        const campaign = await Campaign.findByIdAndDelete(campaignId)
+
+        if (!campaign) return res.status(404).json({error : "Campaign Not Found"})
+
+        return res.status(200).json({success : true, message: "campaign deleted succesfully"})
+        
+    } catch (error) {
+        return res.status(500).json({success : false, error : "Internal Server Error", details : error.message})
+    }
+    
+}
