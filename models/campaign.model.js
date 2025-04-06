@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
 
+const { Schema } = mongoose;
+
 const EmailContentSchema = new Schema({
     subject: String,
     body: String,
@@ -24,7 +26,6 @@ const EmailContentSchema = new Schema({
     },
     emailContent: EmailContentSchema,
     facebookAdContent: FacebookAdContentSchema,
-    instagramStoryContent: InstagramStoryContentSchema,
     smsContent: SMSContentSchema
   }, { _id: false });
   
