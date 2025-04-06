@@ -36,18 +36,7 @@ export const getCampaign = async(req, res, next) => {
 export const generateCampaign = async(req, res, next) => {
     try {
 
-        /**
-         * 
-        
-        1. get the selected avatar, product and channels
-
-        2. call AI API and get response
-
-        3. return the response
-
-         */
-
-        const {avatarId, productId, selectedChannels} = req.body
+        const {name, avatarId, productId, selectedChannels} = req.body
 
         const selectedAvatar = await BuyerPersona.findById(avatarId)
 
@@ -55,11 +44,26 @@ export const generateCampaign = async(req, res, next) => {
 
         if (!selectedAvatar || !selectedProduct) return res.status(404).json({error: "Avatar or Product not found"})
 
-        const campaignJson = await generateCampaignJson(selectedAvatar, selectedProduct, selectedChannels)
+        const campaign = new Campaign({
+            name : name,
+            chosenAvatarId : avatarId,
+            chosenProductId : productId,
+            chosenChannels : selectedChannels,
+            campaignContent : []
+        })
 
-        // save the campaign to database
+        for (const channel of selectedChannels) {
 
-        // return the campaign
+            const campaignJson = await generateCampaignJson(selectedAvatar, selectedProduct, channel)
+
+            campaign.campaignContent.push(campaignJson)
+
+        }
+
+        await campaign.save()
+
+        return res.status(201).json({success: true, message: "campaign generated successfully", campaign})
+
         
     } catch (error) {
         return res.status(500).json({success : false, error : "Internal Server Error", details : error.message})

@@ -1,18 +1,39 @@
+import { z } from "zod";
+
 // 🔹 Email Content
-const EmailContentSchema = z.object({
-    subject: z.string(),
-    body: z.string(),
-    cta: z.string()
+
+
+export const EmailContentSchema = z.object({
+    channel : z.string(),
+    emailContent : z.object({
+      subject: z.string(),
+      body: z.string(),
+      cta: z.string()
+    })   
   })
   
   // 🔹 Facebook Ad Content
-  const FacebookAdContentSchema = z.object({
+export const FacebookAdContentSchema = z.object({
     headline: z.string(),
     body: z.string(),
     cta: z.string()
   })
   
   // 🔹 SMS Content
-  const SMSContentSchema = z.object({
-    message: z.string()
+export const SMSContentSchema = z.object({
+    channel : z.string(),
+    smsContent : z.object({
+      message: z.string()
+    })
+    
   })
+
+
+
+// main schema
+
+export const campaignSchemas = {
+  email : EmailContentSchema,
+  sms : SMSContentSchema,
+  facebook : FacebookAdContentSchema
+}

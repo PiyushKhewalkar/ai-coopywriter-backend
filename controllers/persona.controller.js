@@ -53,7 +53,7 @@ export const generatePersona = async(req, res) => {
             success : true,
             message : "Persona successfully created",
             newPersona
-        })    
+        })
         
     } catch (error) {
         return res.status(500).json({success : false, error : "Internal Server Error", details : error.message})

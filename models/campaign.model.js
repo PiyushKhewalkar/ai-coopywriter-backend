@@ -22,7 +22,7 @@ const EmailContentSchema = new Schema({
   const CampaignContentSchema = new Schema({
     channel: {
       type: String,
-      enum: ['email', 'sms']
+      enum: ['email', 'sms', 'facebook']
     },
     emailContent: EmailContentSchema,
     facebookAdContent: FacebookAdContentSchema,
@@ -54,7 +54,7 @@ const CampaignSchema = new mongoose.Schema({
     chosenChannels: [{
         type: String,
         required: true,
-        enum: ['emails']
+        enum: ['email', 'sms', 'facebook']
     }],
 
     campaignContent: [CampaignContentSchema]
