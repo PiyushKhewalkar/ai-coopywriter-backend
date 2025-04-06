@@ -63,9 +63,11 @@ export const generateCampaignJson = async(avatar, product, channel) => {
 Your task is to generate a compelling marketing message tailored for the channel: ${channel}.  
 Use the customer avatar and product information below to create emotionally engaging, persuasive, and personalized content.
 
+But remember not to use customer avatar the real customer. Don't use the persona names, and specified demographics in the message, instead use placeholders
+
 ---
 
-👤 Customer Avatar:
+👤 Customer Avatar - Don't write "to-him" write for people like him:
 
 - Name: ${avatar.name}
 - Age Range: ${avatar.ageRange}
