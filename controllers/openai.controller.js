@@ -43,3 +43,9 @@ Make sure the persona is detailed, non-generic, and practical, resembling a real
 }
 
 export default generatePersonaJson
+
+export const generateCampaignJson = (avatar, product, channels) => {
+  console.log("Generate Campaign json")
+
+  // get the zod of selected channels
+}
