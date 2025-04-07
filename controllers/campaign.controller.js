@@ -46,6 +46,7 @@ export const generateCampaign = async(req, res, next) => {
 
         const campaign = new Campaign({
             name : name,
+            product : selectedProduct.name,
             chosenAvatarId : avatarId,
             chosenProductId : productId,
             chosenChannels : selectedChannels,

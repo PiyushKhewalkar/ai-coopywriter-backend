@@ -10,8 +10,8 @@ productRouter.get(':productId', getProduct)
 
 productRouter.post('/create', createProduct)
 
-productRouter.put('/:productId/update', updateProduct)
+productRouter.put('/:productId/', updateProduct)
 
-productRouter.delete('/:productId/delete', deleteProduct)
+productRouter.delete('/:productId/', deleteProduct)
 
 export default productRouter

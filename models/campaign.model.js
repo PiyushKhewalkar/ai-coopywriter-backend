@@ -38,7 +38,9 @@ const CampaignSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-
+    product : {
+      type : String
+    },
     chosenAvatarId: {
         type: Schema.Types.ObjectId,
         ref: 'Avatar',

@@ -14,9 +14,12 @@ export const EmailContentSchema = z.object({
   
   // 🔹 Facebook Ad Content
 export const FacebookAdContentSchema = z.object({
+    channel : z.string(),
+    facebookContent : z.object({
     headline: z.string(),
     body: z.string(),
     cta: z.string()
+    })
   })
   
   // 🔹 SMS Content
