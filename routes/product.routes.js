@@ -6,7 +6,7 @@ const productRouter = Router()
 
 productRouter.get('/', getProducts)
 
-productRouter.get(':productId', getProduct)
+productRouter.get('/:productId', getProduct)
 
 productRouter.post('/create', createProduct)
 
