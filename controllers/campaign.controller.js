@@ -36,7 +36,7 @@ export const getCampaign = async(req, res, next) => {
 export const generateCampaign = async(req, res, next) => {
     try {
 
-        const {name, avatarId, productId, selectedChannels} = req.body
+        const {name, avatarId, productId, channels, goal, offerLine} = req.body
 
         const selectedAvatar = await BuyerPersona.findById(avatarId)
 
@@ -49,13 +49,15 @@ export const generateCampaign = async(req, res, next) => {
             product : selectedProduct.name,
             chosenAvatarId : avatarId,
             chosenProductId : productId,
-            chosenChannels : selectedChannels,
-            campaignContent : []
+            chosenChannels : channels,
+            campaignContent : [],
+            goal : goal,
+            offerLine : offerLine
         })
 
-        for (const channel of selectedChannels) {
+        for (const channel of channels) {
 
-            const campaignJson = await generateCampaignJson(selectedAvatar, selectedProduct, channel)
+            const campaignJson = await generateCampaignJson(selectedAvatar, selectedProduct, channel, goal, offerLine)
 
             campaign.campaignContent.push(campaignJson)
 

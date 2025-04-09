@@ -46,7 +46,7 @@ Make sure the persona is detailed, non-generic, and practical, resembling a real
 
 export default generatePersonaJson
 
-export const generateCampaignJson = async(avatar, product, channel) => {
+export const generateCampaignJson = async(avatar, product, channel, goal, offerLine) => {
 
   console.log("Generating Campaign json")
 
@@ -66,6 +66,10 @@ Use the customer avatar and product information below to create emotionally enga
 But remember not to use customer avatar the real customer. Don't use the persona names, and specified demographics in the message, instead use placeholders
 
 ---
+
+Campaign Goal : ${goal}
+
+Offer Line : ${offerLine}
 
 👤 Customer Avatar - Don't write "to-him" write for people like him:
 
