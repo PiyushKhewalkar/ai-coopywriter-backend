@@ -65,6 +65,8 @@ Use the customer avatar and product information below to create emotionally enga
 
 But remember not to use customer avatar the real customer. Don't use the persona names, and specified demographics in the message, instead use placeholders
 
+While writing copy, don't write cringe & childish. always match the vibe of the product and buyer avatar. 
+
 ---
 
 Campaign Goal : ${goal}
